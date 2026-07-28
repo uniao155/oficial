@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIAO 155</title>
+    <!-- Importando fontes modernas e ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESET E ESTILOS GERAIS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            background-image: linear-gradient(rgba(13, 13, 13, 0.94), rgba(13, 13, 13, 0.94)), url('https://w0.peakpx.com/wallpaper/403/91/HD-wallpaper-red-matrix-code-matrix-red.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        /* --- HEADER --- */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background: rgba(20, 20, 20, 0.5);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .mini-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            border: 2px solid #ff0033;
+            box-shadow: 0 0 8px #ff0033;
+            object-fit: cover;
+        }
+
+        /* --- PERFIL --- */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .avatar-container { position: relative; }
+
+        .main-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            border: 3px solid #ff0033;
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+            object-fit: cover;
+        }
+
+        .online-dot-avatar {
+            width: 14px;
+            height: 14px;
+            background-color: #00ff66;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            border: 2px solid #0d0d0d;
+        }
+
+        .profile-info .badge {
+            background-color: rgba(255, 0, 51, 0.15);
+            color: #ff0033;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 0, 51, 0.3);
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .profile-info h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .profile-info h1 span {
+            color: #ff0033;
+            text-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
+        }
+
+        .profile-info p {
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* --- BOTÕES DE CONTATO --- */
+        .social-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .btn-social {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid #2a2a2a;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- ESTATÍSTICAS --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(42, 42, 42, 0.5);
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-info h3 { font-family: 'Orbitron', sans-serif; font-size: 24px; margin-bottom: 2px; }
+        .stat-info p { font-size: 10px; color: #888; text-transform: uppercase; }
+        .stat-card.red-text h3 { color: #ff0033; }
+        .stat-card.green-text h3 { color: #00ff66; }
+        .stat-card.white-text h3 { color: #ffffff; }
+        .stat-icon { font-size: 18px; color: rgba(255, 255, 255, 0.05); }
+        .online-status { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #888; }
+        .online-status-dot { width: 6px; height: 6px; background-color: #00ff66; border-radius: 50%; }
+
+        /* --- SEÇÕES TÍTULOS --- */
+        .section-title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i { color: #ff0033; background: rgba(255, 0, 51, 0.1); padding: 8px; border-radius: 8px; }
+        .badge-count { background-color: rgba(255, 0, 51, 0.15); border: 1px solid #ff0033; color: #ff0033; font-size: 11px; padding: 2px 8px; border-radius: 8px; }
+
+        /* --- FILTROS --- */
+        .search-filter-box { background-color: #141414; border: 1px solid #222; border-radius: 20px; padding: 15px; margin-bottom: 20px; }
+        .search-bar-wrapper { display: flex; gap: 10px; margin-bottom: 15px; }
+        .search-input-container { position: relative; flex: 1; }
+        .search-input-container i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #555; }
+        .search-input-container input { width: 100%; background-color: #0d0d0d; border: 1px solid #2a2a2a; border-radius: 12px; padding: 12px 12px 12px 40px; color: #fff; outline: none; }
+        .btn-view-mode { background-color: #ff0033; color: #fff; border: none; width: 45px; height: 45px; border-radius: 12px; display: flex; justify-content: center; de-items: center; }
+        .btn-view-mode.secondary { background-color: #0d0d0d; border: 1px solid #2a2a2a; color: #555; }
+        .filter-row { display: flex; gap: 8px; overflow-x: auto; white-space: nowrap; padding-bottom: 8px; }
+        .tag { background-color: #1a1a1a; color: #888; padding: 8px 16px; border-radius: 20px; font-size: 12px; text-decoration: none; }
+        .tag.active-red { background-color: #ff0033; color: #fff; }
+        .tag.active-border-red { border: 1px solid #ff0033; color: #ff0033; background-color: rgba(255, 0, 51, 0.05); }
+        .results-counter { display: flex; justify-content: space-between; font-size: 11px; color: #666; margin-bottom: 15px; padding: 0 5px; text-transform: uppercase;}
+        .results-counter span { color: #ff0033; font-weight: bold; }
+
+        /* --- CARDS DE GRUPOS --- */
+        .groups-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Esconde a barra de rolagem para ficar limpo */
+.groups-grid::-webkit-scrollbar {
+    display: none;
+}
+
+        .group-card { 
+    background-color: rgba(20, 20, 20, 0.8); 
+    border: 1px solid #222; 
+    border-radius: 20px; 
+    padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    flex: 0 0 48%; 
+    min-width: 48%; 
+    scroll-snap-align: start;
+}
+
+
+        .group-banner-wrapper { position: relative; width: 100%; border-radius: 15px; overflow: hidden; margin-bottom: 12px; }
+        .group-banner { width: 100%; height: 90px; object-fit: cover; }
+        .vip-badge-floating { position: absolute; top: 8px; right: 8px; background: #ff0033; color: #fff; font-size: 9px; font-weight: bold; padding: 3px 8px; border-radius: 8px; }
+        .group-title { font-size: 12px; font-weight: bold; margin-bottom: 8px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .platform-badge { background-color: rgba(0, 255, 102, 0.05); border: 1px solid rgba(0, 255, 102, 0.2); color: #00ff66; font-size: 9px; font-weight: bold; padding: 5px; border-radius: 8px; text-align: center; margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 4px; }
+        .card-tags { display: flex; gap: 5px; margin-bottom: 12px; }
+        .inner-tag { background-color: #141414; border: 1px solid #252525; color: #666; font-size: 9px; padding: 3px 8px; border-radius: 6px; }
+        .inner-tag.red-type { color: #ff0033; border-color: rgba(255, 0, 51, 0.2); }
+        .btn-enter { background-color: #1a1a1a; color: #fff; border: 1px solid #2a2a2a; padding: 8px; border-radius: 12px; font-size: 12px; text-align: center; text-decoration: none; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 5px; cursor: pointer; }
+
+        /* --- SEÇÃO DONOS & PARCEIROS --- */
+        .owners-container {
+            background-color: rgba(20, 24, 30, 0.6);
+            border: 1px solid rgba(0, 123, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .owner-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+        .owner-name { font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+        .owner-role { background-color: rgba(255, 0, 51, 0.15); color: #ff0033; font-size: 9px; font-weight: bold; padding: 3px 12px; border-radius: 10px; display: inline-block; text-transform: uppercase; }
+
+        /* --- RODAPÉ --- */
+        .main-footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #151515;
+            padding: 30px 10px 90px 10px;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
+        .footer-brand h2 { font-family: 'Orbitron', sans-serif; font-size: 18px; font-style: italic; margin-bottom: 5px; }
+        .footer-brand p { color: #666; font-size: 12px; font-style: italic; margin-bottom: 25px; }
+        .footer-bottom { border-top: 1px solid #151515; padding-top: 15px; display: flex; justify-content: space-between; font-size: 11px; color: #444; }
+
+        /* --- BOTÃO MÚSICA FLUTUANTE --- */
+        .floating-music { position: fixed; bottom: 20px; right: 20px; background-color: #1a1a1a; border: 1px solid #2a2a2a; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.6); color: #aaa; font-size: 18px; z-index: 999; cursor: pointer; }
+        .floating-music.playing { color: #00ff66; border-color: #00ff66; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,255,102,0.4); } 70% { box-shadow: 0 0 0 10px rgba(0,255,102,0); } 100% { box-shadow: 0 0 0 0 rgba(0,255,102,0); } }
+        /* Estilo da Tela de Boas-Vindas */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0710;
+    background-image: radial-gradient(circle at center, #241433 0%, #0b0710 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.welcome-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.welcome-content h1 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.welcome-content p {
+    color: #8c7b9e;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+}
+
+.btn-welcome {
+    background: linear-gradient(135deg, #5b21b6, #9333ea);
+    color: white;
+    border: none;
+    padding: 14px 38px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 1px;
+}
+
+.btn-welcome:active {
+    transform: scale(0.95);
+}
+
+.welcome-subtext {
+    color: #4a3e5c;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 25px;
+    text-transform: uppercase;
+}
+
+/* Esconde a tela de entrada suavemente ao clicar */
+.welcome-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/* Estilos do Modal Pop-up */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: #121214;
+    border: 1px solid #2a2a2e;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    animation: popupAnimation 0.3s ease;
+}
+
+@keyframes popupAnimation {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modal-banner-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.modal-banner-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-vip-badge {
+    display: none;
+    position: absolute;
+    top: 12px; right: 12px;
+    background: linear-gradient(135deg, #8a2be2, #ff007f);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+/* MODAL DE DENÚNCIA ESTILO */
+.report-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.report-modal-box {
+  background: #121214;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 420px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.report-header h2 {
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.report-close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.report-field {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.report-field label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+.report-field input, 
+.report-field select, 
+.report-field textarea {
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.report-field input:focus, 
+.report-field select:focus, 
+.report-field textarea:focus {
+  border-color: #ff0044;
+}
+
+.report-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #27272a;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-send {
+  flex: 1;
+  background: #ff0044;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ESTILO DOS BOTÕES DO CARD (INFO E BANDEIRA) */
+.card-footer-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-icon-action {
+  flex: 1;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 10px;
+  color: #a1a1aa;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn-icon-action:hover {
+  background: #27272a;
+  color: #fff;
+  border-color: #3f3f46;
+}
+  /* ... Todos os seus outros estilos de CSS do site ... */
+
+
+  /* ESTILO DO CLOUDFLARE TURNSTILE */
+  .turnstile-box {
+    background: #121214;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    box-sizing: border-box;
+  }
+
+  .turnstile-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .turnstile-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #3f3f46;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: turnstile-spin 0.8s linear infinite;
+  }
+
+  @keyframes turnstile-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .turnstile-check {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+  }
+
+  .turnstile-check.hidden,
+  .turnstile-spinner.hidden {
+    display: none !important;
+  }
+
+  #turnstile-text {
+    color: #e4e4e7;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .turnstile-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .brand-title {
+    color: #f97316;
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  .brand-links {
+    font-size: 0.65rem;
+    color: #71717a;
+  }
+
+  .brand-links a {
+    color: #a1a1aa;
+    text-decoration: underline;
+  }
+    </style>
+    
+</head>
+<body>
+      <!-- TELA DE ENTRADA / SPLASH SCREEN -->
+    <div id="welcome-screen" class="welcome-overlay">
+        <div class="welcome-content">
+            <h1>BEM VINDO</h1>
+            <p>©2026 UNIÃO 155</p>
+            <button id="enter-btn" class="btn-welcome">
+                <i class="fa-solid fa-arrow-right"></i> ENTRAR
+            </button>
+            <span class="welcome-subtext">TOQUE PARA ENTRAR</span>
+        </div>
+    </div>
+    
+
+    <!-- MÚSICA DE FUNDO -->
+    <audio id="bg-music" loop src="https://tragic-silver-nhhtlk5m.edgeone.dev/XXXTENTACION%20-%20BAD_%20(Audio)(MP3_160K).mp3"></audio>
+
+    <!-- Top Barra -->
+    <div class="top-nav">
+        <!-- Foto da caveira da união no topo -->
+        <img src="https://i.postimg.cc/L53KFLZ4/1784383391174.png" class="mini-logo" alt="Mini Logo">
+    </div>
+
+    <!-- Perfil Principal -->
+    <div class="profile-section">
+        <div class="avatar-container">
+            <!-- Foto da caveira principal da União 155 -->
+            <img src="https://i.postimg.cc/L53KFLZ4/1784383391174.png" class="main-avatar" alt="Logo Principal">
+            <div class="online-dot-avatar"></div>
+        </div>
+        <div class="profile-info">
+            <span class="badge">● Oficial</span>
+            <h1>UNIÃO <span>155</span></h1>
+            <p>O que você teme, nós criamos!</p>
+        </div>
+    </div>
+
+    <!-- Links de Redes Sociais -->
+    <div class="social-buttons">
+        <a href="https://wa.me/6285950585102" target="_blank" class="btn-social"><i class="fa-brands fa-whatsapp" style="color: #00ff66;"></i> WhatsApp</a>
+        <a href="https://t.me/mathkited" target="_blank" class="btn-social"><i class="fa-brands fa-telegram" style="color: #0088cc;"></i> Telegram</a>
+    </div>
+
+    <!-- Painel de Contadores -->
+    <div class="stats-grid">
+        <div class="stat-card red-text">
+            <div class="stat-info"><h3>8</h3><p>Total de Grupos</p></div>
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+        </div>
+        <div class="stat-card red-text">
+            <div class="stat-info"><h3>104</h3><p>Visitantes Hoje</p></div>
+            <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
+        </div>
+        <div class="stat-card green-text">
+            <div class="stat-info">
+                <h3>1</h3>
+                <div class="online-status"><span class="online-status-dot"></span> Online Agora</div>
+            </div>
+            <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        </div>
+        <div class="stat-card white-text">
+            <div class="stat-info"><h3>369</h3><p>Visitantes Total</p></div>
+            <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
+    </div>
+
+    <!-- Seção de Grupos -->
+    <div class="section-title-container">
+        <div class="section-title"><i class="fa-solid fa-user-group"></i> GRUPOS</div>
+        <div class="badge-count">8</div>
+    </div>
+
+    <!-- Filtros e Busca -->
+    <div class="search-filter-box">
+        <div class="search-bar-wrapper">
+            <div class="search-input-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Buscar Grupos...">
+            </div>
+            <button class="btn-view-mode"><i class="fa-solid fa-grip-lines"></i></button>
+            <button class="btn-view-mode secondary"><i class="fa-solid fa-grip"></i></button>
+        </div>
+        <div class="filter-row">
+    <a href="#" class="tag active-red" data-filter="all"><i class="fa-solid fa-filter"></i> Todos</a>
+    <a href="#" class="tag active-border-red" data-filter="vip"><i class="fa-regular fa-star"></i> VIP</a>
+    <!-- Novo filtro adicionado abaixo -->
+    <a href="#" class="tag active-border-red" data-filter="comum"><i class="fa-regular fa-user"></i> Comum</a>
+</div>
+
+        </div>
+    </div>
+
+   <div class="results-counter">
+   <p>Mostrando <span id="showing-count">8</span> de <span id="total-count">8</span> grupos</p>
+        </div>
+        
+
+    <!-- 👥 CONTAINER DOS GRUPOS (FIXOS NO HTML PARA RODAR NO PREVIEW) -->
+    <div class="groups-grid" id="groups-container">
+        
+        <!-- GRUPO 1: The invencibles -->
+      <div class="group-card" data-category="vip">
+            <div class="group-banner-wrapper">
+                <img src="https://i.postimg.cc/HLkGDrpc/IMG-20260718-WA0023.jpg" class="group-banner">
+                <div class="vip-badge-floating"><i class="fa-solid fa-star"></i> VIP</div>
+            </div>
+            <div class="group-title">The invencibles</div>
+            <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+            <div class="card-tags">
+                <span class="inner-tag red-type">Amizades</span>
+            </div>
+            <a href="https://chat.whatsapp.com/HKYgeJUVWIm4RrJjNMeI3d" target="_blank" class="btn-enter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar</a>
+            </a>
+                  <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('The invencibles')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+        </div>
+
+        <!-- GRUPO 2: black eclipse -->
+      <div class="group-card" data-category="vip">
+            <div class="group-banner-wrapper">
+                <img src="https://i.postimg.cc/k56cbCsc/IMG-20260718-WA0024.jpg" class="group-banner">
+                <div class="vip-badge-floating"><i class="fa-solid fa-star"></i> VIP</div>
+            </div>
+            <div class="group-title">black eclipse</div>
+            <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+            <div class="card-tags">
+                <span class="inner-tag red-type">Amizades</span>
+            </div>
+            <a href="https://chat.whatsapp.com/Lg1LVtRa6nf273sv4PH4uq?s=cl&p=a&ilr=1" target="_blank" class="btn-enter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar</a>
+            <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Black eclipse')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+        </div>
+
+        <!-- GRUPO 3: Sem limites -->
+        <div class="group-card" data-category="comum">
+            <div class="group-banner-wrapper">
+                <img src="https://i.postimg.cc/63KvpxmJ/IMG-20260718-WA0025.jpg" class="group-banner">
+            </div>
+            <div class="group-title">Sem limites</div>
+            <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+            <div class="card-tags">
+                <span class="inner-tag red-type">Comum</span>
+            </div>
+            <a href="https://chat.whatsapp.com/FY9UDa0OBbu5u6sFkUUdaf" target="_blank" class="btn-enter">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar
+            </a>
+            <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Sem limites')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+        </div>
+
+        <!-- GRUPO 4: México -->
+        <div class="group-card" data-category="comum">
+            <div class="group-banner-wrapper">
+                <img src="https://i.postimg.cc/zGwjgyfg/IMG-20260719-WA0077.jpg" class="group-banner">
+            </div>
+            <div class="group-title">México</div>
+            <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+            <div class="card-tags">
+                <span class="inner-tag red-type">Comum</span>
+            </div>
+            <a href="https://chat.whatsapp.com/Do7CqksWm7v9aFZ9aHSEi0" target="_blank" class="btn-enter">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar
+            </a>
+              <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Mexico')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+        </div>
+            <!-- GRUPO 5: Dark Society -->
+            <div class="group-card" data-category="comum">
+                <div class="group-banner-wrapper">
+                    <img src="https://i.postimg.cc/bwk0yb1W/IMG-20260722-WA0114.jpg" class="group-banner">
+                </div>
+                <div class="group-title">Dark Society</div>
+                <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+                <div class="card-tags">
+                    <span class="inner-tag red-type">Comum</span>
+                </div>
+                <a href="https://chat.whatsapp.com/Bg4b80oYJcL5IbDZ8Y2xCA?s=cl&p=a&ilr=0&amv=3" target="_blank" class="btn-enter">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar
+                </a>
+            <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Dark Society')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+            </div>
+           <!-- GRUPO 6: Dark Império -->
+            <div class="group-card" data-category="comum">
+                <div class="group-banner-wrapper">
+                    <img src="https://i.postimg.cc/pThzSFVs/IMG-20260722-WA0115.jpg" class="group-banner">
+                </div>
+                <div class="group-title">Dark Império</div>
+                <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+                <div class="card-tags">
+                    <span class="inner-tag red-type">Comum</span>
+                </div>
+                <a href="https://chat.whatsapp.com/EwdSse9551P4f7xrveyjOj?s=cl&p=a&ilr=0&amv=3" target="_blank" class="btn-enter">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar
+                </a>
+             <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Dark imperio')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+            </div>
+        <!-- GRUPO 7: Chat trevas¹⁵⁵ RVL -->
+    <div class="group-card" data-category="comum">
+            <div class="group-banner-wrapper">
+                <img src="https://i.postimg.cc/pdNmfZKR/IMG-20260724-WA0041.jpg" class="group-banner">
+            </div>
+            <div class="group-title">Chat trevas¹⁵⁵ RVL</div>
+            <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+            <div class="card-tags">
+                <span class="inner-tag red-type">Amizades</span>
+            </div>
+            <a href="https://chat.whatsapp.com/HSYziaBmk2CLNfnAb8OwRK?s=cl&p=a&ilr=1" target="_blank" class="btn-enter">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                Entrar
+            </a>
+                  <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Chat trevas¹⁵⁵ RVL')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+        </div>
+            <!-- GRUPO 9: Alucinados 💯 noção -->
+            <div class="group-card" data-category="comum">
+                <div class="group-banner-wrapper">
+                    <img src="https://i.postimg.cc/QxHjFqc2/IMG-20260724-WA0065.jpg" class="group-banner">
+                </div>
+                <div class="group-title">Alucinados 💯 noção</div>
+                <div class="platform-badge"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</div>
+                <div class="card-tags">
+                    <span class="inner-tag red-type">Comum</span>
+                </div>
+                <a href="https://chat.whatsapp.com/FMVL3Uw4pPT0oVoUY5J75q?s=cl&p=a&ilr=4" target="_blank" class="btn-enter">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar
+                </a>
+
+      <!-- 🔴 ADICIONE ESTE BLOCO ABAIXO: -->
+      <div class="card-footer-btns">
+        <button class="btn-icon-action" type="button">
+          <i class="fa-solid fa-circle-info"></i>
+        </button>
+        
+        <button class="btn-icon-action" type="button" onclick="abrirModalDenuncia('Alucinados 💯 noção')">
+          <i class="fa-solid fa-flag"></i>
+        </button>
+      </div>
+
+    </div> <!-- Fecha o group-card -->
+
+            </div>
+
+    </div>
+
+    <!-- 📢 SEÇÃO CANAIS -->
+    <div class="section-title-container">
+        <div class="section-title"><i class="fa-solid fa-phone" style="transform: rotate(15deg);"></i> CANAIS</div>
+        <div class="badge-count" style="background-color: rgba(0, 123, 255, 0.15); border-color: #007bff; color: #007bff;">1</div>
+    </div>
+
+    <!-- CONTAINER DOS CANAIS -->
+    <div class="groups-grid" id="channels-container">
+        
+        <!-- CANAL DA UNIÃO 155 -->
+        <div class="group-card">
+            <div class="group-banner-wrapper">
+                <!-- Foto oficial do canal que você mandou -->
+                <img src="https://i.postimg.cc/fW3dK5QK/Screenshot-20260713-110450-584.png" class="group-banner">
+                <div class="vip-badge-floating" style="background: #007bff;"><i class="fa-solid fa-bullhorn"></i> CANAL</div>
+            </div>
+            <div class="group-title">União 155 Oficial</div>
+            <div class="platform-badge" style="background: rgba(0, 123, 255, 0.05); border-color: rgba(0, 123, 255, 0.2); color: #007bff;"><i class="fa-brands fa-whatsapp"></i> WHATSAPP CANAL</div>
+            <div class="card-tags">
+                <span class="inner-tag" style="color: #007bff; border-color: rgba(0, 123, 255, 0.2);">Novidades</span>
+            </div>
+            <a href="https://whatsapp.com/channel/0029VbBRHNcDZ4LgNGfq5P0Y" target="_blank" class="btn-enter" style="border-color: rgba(0, 123, 255, 0.3);"><i class="fa-solid fa-arrow-up-right-from-square"></i> Seguir Canal</a>
+        </div>
+
+    </div>
+
+    <!-- SEÇÃO DONOS -->
+    <div class="section-title-container">
+        <div class="section-title"><i class="fa-solid fa-user-shield"></i> DONOS & PARCEIROS</div>
+    </div>
+    <div class="owners-container">
+        <img src="https://i.postimg.cc/wMkJPXDw/5f62579de7c602181051f217db19959e.jpg" class="owner-avatar" alt="math 155">
+        <div class="owner-name">math</div>
+        <span class="owner-role">Dono</span>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="main-footer">
+        <div class="footer-brand">
+            <h2>UNIÃO 155</h2>
+            <p>O que você teme, nós criamos!</p>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 UNIÃO 155</p>
+            <p>Central</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante de Música -->
+    <div class="floating-music" id="music-btn" onclick="toggleMusic()">
+        <i class="fa-solid fa-music"></i>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play().then(() => { musicBtn.classList.add('playing'); }).catch(() => {});
+            } else {
+                audio.pause();
+                musicBtn.classList.remove('playing');
+            }
+        }
+            const enterBtn = document.getElementById('enter-btn');
+    const welcomeScreen = document.getElementById('welcome-screen');
+
+    if (enterBtn) {
+    enterBtn.addEventListener('click', () => {
+        if (audio) {
+            audio.play().then(() => {
+                if (musicBtn) musicBtn.classList.add('playing');
+            }).catch(err => console.log("Erro no áudio:", err));
+        }
+        if (welcomeScreen) welcomeScreen.classList.add('fade-out');
+    });
+}
+
+       </script>
+         <!-- Pop-up Modal do Grupo -->
+      <div id="group-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-banner-wrapper">
+            <span id="modal-vip-badge" class="modal-vip-badge">★ VIP</span>
+            <img id="modal-img" src="" alt="Banner do Grupo">
+        </div>
+        <div class="modal-body">
+            <h2 id="modal-title">Nome do Grupo</h2>
+            <div id="modal-platform" class="platform-badge">
+                <i class="fa-brands fa-whatsapp"></i> WHATSAPP
+            </div>
+            <div id="modal-tags" class="card-tags"></div>
+            <a id="modal-enter-btn" href="#" target="_blank" class="btn-enter" style="margin-top: 15px; display: block; text-align: center;">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Entrar no Grupo
+            </a>
+        </div>
+    </div>
+</div>
+
+  <script>
+// 1. Lógica dos Filtros
+const filterTags = document.querySelectorAll('.filter-row .tag');
+const groupCards = document.querySelectorAll('.group-card');
+
+filterTags.forEach(tag => {
+    tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        filterTags.forEach(t => t.classList.remove('active-red'));
+        tag.classList.add('active-red');
+
+        const filterValue = tag.getAttribute('data-filter');
+
+        groupCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (filterValue === 'all' || cardCategory === filterValue) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// 2. Lógica do Pop-up (Modal)
+const modal = document.getElementById('group-modal');
+const modalClose = document.querySelector('.modal-close');
+
+document.querySelectorAll('.group-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        // Se clicar no botão de entrar, entra direto no link sem travar
+        if (e.target.closest('.btn-enter')) return;
+
+        const imgSrc = card.querySelector('.group-banner')?.src || '';
+        const title = card.querySelector('.group-title')?.innerHTML || '';
+        const category = card.getAttribute('data-category');
+        const link = card.querySelector('.btn-enter')?.getAttribute('href') || '#';
+        const tags = card.querySelector('.card-tags')?.innerHTML || '';
+
+        document.getElementById('modal-img').src = imgSrc;
+        document.getElementById('modal-title').innerHTML = title;
+        document.getElementById('modal-tags').innerHTML = tags;
+        document.getElementById('modal-enter-btn').href = link;
+
+        const vipBadge = document.getElementById('modal-vip-badge');
+        if (vipBadge) {
+            vipBadge.style.display = (category === 'vip') ? 'block' : 'none';
+        }
+
+        modal.style.display = 'flex';
+    });
+});
+
+modalClose.addEventListener('click', () => modal.style.display = 'none');
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+});
+
+   </script>
+      <!-- MODAL DE DENÚNCIA -->
+<div id="report-modal" class="report-modal-overlay" style="display: none;">
+  <div class="report-modal-box">
+    <div class="report-header">
+      <h2><i class="fa-solid fa-flag" style="color: #ff0044;"></i> Denunciar Grupo</h2>
+      <span class="report-close" id="close-report">&times;</span>
+    </div>
+
+    <form id="report-form">
+      <div class="report-field">
+        <label>GRUPO</label>
+        <input type="text" id="report-group-name" readonly>
+      </div>
+
+      <div class="report-field">
+        <label>MOTIVO *</label>
+        <select id="report-reason" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="Conteudo Ilegal">Conteúdo ilegal</option>
+          <option value="Spam / Golpe">Spam / Golpe</option>
+          <option value="Conteudo Adulto">Conteúdo adulto</option>
+          <option value="Discurso de Odio">Discurso de ódio</option>
+          <option value="Assedio / Bullying">Assédio / Bullying</option>
+          <option value="Link Invalido">Grupo falso / Link inválido</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="report-field">
+        <label>DETALHES (OPCIONAL)</label>
+        <textarea id="report-details" rows="3" placeholder="Descreva o problema..."></textarea>
+      </div>
+<div class="turnstile-box">
+  <div class="turnstile-status">
+    <div class="turnstile-spinner" id="turnstile-spinner"></div>
+    <div class="turnstile-check hidden" id="turnstile-check"></div>
+    <span id="turnstile-text">Verificando se você é humano...</span>
+  </div>
+  <div class="turnstile-brand">
+    <span class="brand-title">CLOUDFLARE</span>
+    <div class="brand-links">
+      <a href="#" onclick="return false;">Privacidade</a> • 
+      <a href="#" onclick="return false;">Ajuda</a>
+    </div>
+  </div>
+</div>
+
+      <div class="report-actions">
+        <button type="button" class="btn-cancel" id="cancel-report">Cancelar</button>
+        <button type="submit" class="btn-send" id="send-report"><i class="fa-solid fa-flag"></i> Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Função para abrir o modal preenchendo o nome do grupo
+function abrirModalDenuncia(nomeDoGrupo) {
+  document.getElementById('report-group-name').value = nomeDoGrupo;
+  document.getElementById('report-modal').style.display = 'flex';
+
+  // --- LÓGICA DE VERIFICAÇÃO DO TURNSTILE ---
+  const spinner = document.getElementById('turnstile-spinner');
+  const check = document.getElementById('turnstile-check');
+  const text = document.getElementById('turnstile-text');
+
+  // Reseta para o estado girando
+  spinner.classList.remove('hidden');
+  check.classList.add('hidden');
+  text.innerText = 'Verificando se você é humano...';
+
+  // Espera 1 segundo e muda para "Sucesso!" com a bolinha verde
+  setTimeout(() => {
+    spinner.classList.add('hidden');
+    check.classList.remove('hidden');
+    text.innerText = 'Sucesso!';
+  }, 1000);
+}
+
+
+// Fechar modal no botão X ou no Cancelar
+document.getElementById('close-report').addEventListener('click', () => {
+  document.getElementById('report-modal').style.display = 'none';
+});
+
+document.getElementById('cancel-report').addEventListener('click', () => {
+  document.getElementById('report-modal').style.display = 'none';
+});
+
+// Lógica de envio por e-mail via Formspree
+document.getElementById('report-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const submitBtn = document.getElementById('send-report');
+  submitBtn.innerText = 'Enviando...';
+  submitBtn.disabled = true;
+
+  const dados = {
+    grupo: document.getElementById('report-group-name').value,
+    motivo: document.getElementById('report-reason').value,
+    detalhes: document.getElementById('report-details').value
+  };
+
+  fetch('https://formspree.io/f/mpqvkpzy', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dados)
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Denúncia enviada com sucesso! Ela será analisada, e se houver violação, tomaremos providência.');
+      document.getElementById('report-form').reset();
+      document.getElementById('report-modal').style.display = 'none';
+    } else {
+      alert('Erro ao enviar a denúncia. Tente novamente.');
+    }
+  })
+  .catch(() => {
+    alert('Erro de conexão ao enviar denúncia.');
+  })
+  .finally(() => {
+    submitBtn.innerText = 'Enviar';
+    submitBtn.disabled = false;
+  });
+});
+
+</script>
+</body>
+</html>
